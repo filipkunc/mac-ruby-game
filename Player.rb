@@ -33,8 +33,8 @@ class Player < GameObject
 		
 		@isLeftOriented = true
 		@currentSprite = @@leftStand
-		@initialUpSpeed = 15
-		@upSpeed = 15
+		@initialUpSpeed = 18
+		@upSpeed = @initialUpSpeed
 		@isJumping = false
 		@isMoving = false
 	end
@@ -55,6 +55,11 @@ class Player < GameObject
 		else
 			@currentSprite = @isLeftOriented ? @@leftStand : @@rightStand
 		end
+	end
+	
+	def draw
+		glColor4f(1, 1, 1, 1)
+		@currentSprite.drawAtX @x, y:@y
 	end
 	
 	def update(game)
@@ -91,13 +96,10 @@ class Player < GameObject
 			stopJumpIfNeeded(rc)			
 		end
 		updateCurrentSprite		
-		diff_x = @old_x - @x
-		diff_y = @old_y - @y
-		game.moveWorld(diff_x, diff_y)
-		@x = @old_x
-		@y = @old_y
-		# uncomment to apply motionBlur to player
-		#@old_x += diff_x
-		#@old_y += diff_y
+		diffX = @oldX - @x
+		diffY = @oldY - @y
+		game.moveWorld(diffX, diffY)
+		@x = @oldX
+		@y = @oldY
 	end
 end

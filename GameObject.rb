@@ -5,43 +5,50 @@
 # For license see LICENSE.TXT.
 
 class GameObject
-	attr_accessor :x, :y, :old_x, :old_y
+	attr_accessor :x, :y, :blurX, :blurY, :oldX, :oldY
 	
 	def initialize(x, y)		
 		@currentSprite = nil
 		@oldSprite = nil
 		@x = x
 		@y = y
-		@old_x = @x
-		@old_y = @y
+		@blurX = @x
+		@blurY = @y
+		@oldX = @x
+		@oldY = @y
 	end
 		
 	def update(game)
 		@oldSprite = @currentSprite
-		@old_x = @x
-		@old_y = @y
+		@oldX = @x
+		@oldY = @y
 	end
 	
 	def motionBlur
-		stepCount = 6
-		alpha = 0.01
-		step_x = @x - @old_x
-		step_y = @y - @old_y
-		step_x /= stepCount
-		step_y /= stepCount
+		stepCount = 7
+		alphaStep = 0.01
+		alpha = alphaStep
+		stepX = @x - @blurX
+		stepY = @y - @blurY
+		stepX /= stepCount
+		stepY /= stepCount
+		x = @blurX
+		y = @blurY
 		for i in (1..stepCount)
 			glColor4f(1, 1, 1, alpha)
 			if i < stepCount / 2 && @oldSprite
-				@oldSprite.drawAtX @old_x, y:@old_y
+				@oldSprite.drawAtX x, y:y
 			else
-				@currentSprite.drawAtX @old_x, y:@old_y
+				@currentSprite.drawAtX x, y:y
 			end
-			@old_x += step_x
-			@old_y += step_y
-			alpha += 0.01
+			x += stepX
+			y += stepY
+			alpha += alphaStep
 		end
-		@old_x = @x
-		@old_y = @y
+		@blurX += stepX * stepCount * 0.5
+		@blurY += stepY * stepCount * 0.5
+		@oldX = @x
+		@oldY = @y		
 	end
 	
 	def draw
@@ -80,5 +87,9 @@ class GameObject
 	
 	def rect
 		NSMakeRect(@x, @y, width, height)		
+	end
+	
+	def isPlatform
+		false
 	end
 end

@@ -26,13 +26,16 @@ class Game
 		@player = Player.new(400, 140)
 		@gameObjects.addObject Platform.new(50, 200)		
 		@gameObjects.addObject Platform.new(220, 200)
-		@gameObjects.addObject Platform.new(420, 260)		
+		@gameObjects.addObject Platform.new(420, 260)
+		soldier = Soldier.new(80, 200)
+		soldier.y -= soldier.height
+		@gameObjects.addObject soldier
 		
 		@player.x = @width / 2 - @player.width / 2;
 		@player.y = @height / 2 - @player.height / 2;
-		moveWorld(@player.x - @player.old_x, @player.y - @player.old_y)
-		@player.old_x = @player.x
-		@player.old_y = @player.y
+		moveWorld(@player.x - @player.oldX, @player.y - @player.oldY)
+		@player.oldX = @player.x
+		@player.oldY = @player.y
 	end
 
 	def update
@@ -71,9 +74,9 @@ class Game
 	
 	def platformCollision(playerRect)
 		@gameObjects.each do |gameObject|
-			rect = NSIntersectionRect(gameObject.rect, playerRect)
-			unless NSIsEmptyRect(rect)			
-				return rect
+			if gameObject.isPlatform
+				rect = NSIntersectionRect(gameObject.rect, playerRect)
+				return rect unless NSIsEmptyRect(rect)			
 			end
 		end
 		return NSZeroRect

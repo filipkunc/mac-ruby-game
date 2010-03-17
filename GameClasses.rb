@@ -15,6 +15,12 @@ class Platform < GameObject
 		@@sprite = Sprite.spriteWithName "platform.png" unless @@sprite
 		@currentSprite = @@sprite
 	end
+	
+	def isPlatform
+		true
+	end
 end
+
+
 
 

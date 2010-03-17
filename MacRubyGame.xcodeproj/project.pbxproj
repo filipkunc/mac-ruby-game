@@ -142,6 +142,7 @@
 		A7B9A5C7114EFACE00B315E5 /* walkway8.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A571114EFACE00B315E5 /* walkway8.png */; };
 		A7C26928114836CD004CC4B4 /* GameView.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7C26927114836CD004CC4B4 /* GameView.rb */; };
 		A7C2693E11483926004CC4B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2693D11483926004CC4B4 /* OpenGL.framework */; };
+		A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7D30F8D115189E1005D5A4D /* Soldier.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -264,6 +265,7 @@
 		A7B9A571114EFACE00B315E5 /* walkway8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkway8.png; path = Images/walkway8.png; sourceTree = "<group>"; };
 		A7C26927114836CD004CC4B4 /* GameView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameView.rb; sourceTree = "<group>"; };
 		A7C2693D11483926004CC4B4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		A7D30F8D115189E1005D5A4D /* Soldier.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Soldier.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				A75F0B74114C39C600AB2781 /* GameObject.rb */,
 				A75F0B98114C3C2200AB2781 /* GameClasses.rb */,
 				A7469CA5114D3D7500ECBD9F /* Player.rb */,
+				A7D30F8D115189E1005D5A4D /* Soldier.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				A7B9A5C5114EFACE00B315E5 /* walkway6.png in Resources */,
 				A7B9A5C6114EFACE00B315E5 /* walkway7.png in Resources */,
 				A7B9A5C7114EFACE00B315E5 /* walkway8.png in Resources */,
+				A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
