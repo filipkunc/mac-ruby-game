@@ -14,12 +14,12 @@ class Player < GameObject
 			@@leftMoves = []
 			@@rightMoves = []	
 		
-			4.times do |i|
-				@@leftMoves << Sprite.spriteWithName("lcopmov#{i+1}weap.png")
+			for i in 1..4
+				@@leftMoves << Sprite.spriteWithName("lcopmov#{i}weap.png")
 			end
 			
-			4.times do |i|
-				@@rightMoves << Sprite.spriteWithName("rcopmov#{i+1}weap.png")
+			for i in 1..4
+				@@rightMoves << Sprite.spriteWithName("rcopmov#{i}weap.png")
 			end
 			
 			@@leftStand = Sprite.spriteWithName "lcopweap.png"
@@ -27,6 +27,8 @@ class Player < GameObject
 			
 			@@leftJump = Sprite.spriteWithName "lcopjumpweap.png"
 			@@rightJump = Sprite.spriteWithName "rcopjumpweap.png"
+			
+			@@fire = Sprite.spriteWithName "fire.png"
 			
 			@@spritesLoaded = true
 		end
@@ -37,6 +39,8 @@ class Player < GameObject
 		@upSpeed = @initialUpSpeed
 		@isJumping = false
 		@isMoving = false
+		
+		@fires = []
 	end
 	
 	def stopJumpIfNeeded(rc)
@@ -62,8 +66,7 @@ class Player < GameObject
 		@currentSprite.drawAtX @x, y:@y
 	end
 	
-	def update(game)
-		super(game)
+	def moveUpdate(game)
 		if game.pressedKeys.include?(NSLeftArrowFunctionKey)
 			@isLeftOriented = true
 			@isMoving = true
@@ -75,6 +78,9 @@ class Player < GameObject
 		else
 			@isMoving = false
 		end
+	end
+	
+	def jumpUpdate(game)
 		if @upSpeed > 0 && !@isJumping && game.pressedKeys.include?(NSUpArrowFunctionKey)
 			@isJumping = true
 			@y -= @upSpeed
@@ -95,11 +101,33 @@ class Player < GameObject
 			end
 			stopJumpIfNeeded(rc)			
 		end
+	end
+	
+	def fireUpdate(game)
+		@fireCounter ||= 0
+		@fireCounter += 1
+		if (@fireCounter > 2)
+			if (game.pressedKeys.include?(32)) # can't find any 'virtual code' for space 
+				game.addFire(Fire.new(@isLeftOriented ? @x - 8 : @x + width, @y + 18, @isLeftOriented ? -30 : 30, 0))
+				@fireCounter = 0
+			end			
+		end
+	end
+	
+	def finalUpdate(game)
 		updateCurrentSprite		
 		diffX = @oldX - @x
 		diffY = @oldY - @y
 		game.moveWorld(diffX, diffY)
 		@x = @oldX
 		@y = @oldY
+	end
+	
+	def update(game)
+		super(game)
+		moveUpdate(game)
+		jumpUpdate(game)
+		fireUpdate(game)
+		finalUpdate(game)
 	end
 end

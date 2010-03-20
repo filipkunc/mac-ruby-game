@@ -16,7 +16,7 @@ class GameView < NSOpenGLView
 			
 		self.openGLContext.makeCurrentContext
 		
-		glClearColor(0.2, 0.3, 0.3, 1.0)
+		glClearColor(0.3, 0.4, 0.4, 1.0)
 		glEnable(GL_TEXTURE_2D)
 		glEnable(GL_BLEND)
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)

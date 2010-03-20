@@ -25,11 +25,12 @@ class GameObject
 	end
 	
 	def motionBlur
-		stepCount = 7
-		alphaStep = 0.01
-		alpha = alphaStep
 		stepX = @x - @blurX
 		stepY = @y - @blurY
+		stepCount = Math.max(stepX.abs, stepY.abs)
+		stepCount = Math.max(stepCount.ceil, 1)
+		alphaStep = 0.001
+		alpha = alphaStep
 		stepX /= stepCount
 		stepY /= stepCount
 		x = @blurX
@@ -45,10 +46,14 @@ class GameObject
 			y += stepY
 			alpha += alphaStep
 		end
-		@blurX += stepX * stepCount * 0.5
-		@blurY += stepY * stepCount * 0.5
+		@blurX += stepX * stepCount * 0.75
+		@blurY += stepY * stepCount * 0.75
 		@oldX = @x
 		@oldY = @y		
+	end
+	
+	def addDamage(amount)
+		true
 	end
 	
 	def draw
@@ -69,6 +74,16 @@ class GameObject
 		end
 	end
 	
+	def playSprites(sprites)
+		currentIndex = sprites.index(@currentSprite)
+		if currentIndex
+			@currentSprite = sprites[currentIndex + 1]
+			@currentSprite = sprites.last unless @currentSprite
+		else
+			@currentSprite = sprites.first
+		end
+	end
+
 	def width
 		if @currentSprite
 			@currentSprite.width

@@ -52,7 +52,9 @@
 		A7469CA6114D3D7500ECBD9F /* Player.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7469CA5114D3D7500ECBD9F /* Player.rb */; };
 		A75F0AEF114C130600AB2781 /* Game.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0AEE114C130600AB2781 /* Game.rb */; };
 		A75F0B75114C39C600AB2781 /* GameObject.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B74114C39C600AB2781 /* GameObject.rb */; };
-		A75F0B99114C3C2200AB2781 /* GameClasses.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B98114C3C2200AB2781 /* GameClasses.rb */; };
+		A75F0B99114C3C2200AB2781 /* Platform.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B98114C3C2200AB2781 /* Platform.rb */; };
+		A7B38B6611555C1500BEE199 /* Fire.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38B6511555C1500BEE199 /* Fire.rb */; };
+		A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38BAE1155642900BEE199 /* MathExtensions.rb */; };
 		A7B48772114B09D60044442A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48771114B09D60044442A /* Sprite.m */; };
 		A7B9A572114EFACE00B315E5 /* lcopdie1weap.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */; };
 		A7B9A573114EFACE00B315E5 /* lcopdie2weap.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A51D114EFACE00B315E5 /* lcopdie2weap.png */; };
@@ -84,10 +86,10 @@
 		A7B9A58D114EFACE00B315E5 /* lskulldie4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A537114EFACE00B315E5 /* lskulldie4.png */; };
 		A7B9A58E114EFACE00B315E5 /* lskulldie5.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A538114EFACE00B315E5 /* lskulldie5.png */; };
 		A7B9A58F114EFACE00B315E5 /* lskulldie6.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A539114EFACE00B315E5 /* lskulldie6.png */; };
-		A7B9A590114EFACE00B315E5 /* lSoldier.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53A114EFACE00B315E5 /* lSoldier.png */; };
-		A7B9A591114EFACE00B315E5 /* lSoldier2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53B114EFACE00B315E5 /* lSoldier2.png */; };
-		A7B9A592114EFACE00B315E5 /* lSoldier3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53C114EFACE00B315E5 /* lSoldier3.png */; };
-		A7B9A593114EFACE00B315E5 /* lSoldier4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53D114EFACE00B315E5 /* lSoldier4.png */; };
+		A7B9A590114EFACE00B315E5 /* lSoldie1.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53A114EFACE00B315E5 /* lSoldie1.png */; };
+		A7B9A591114EFACE00B315E5 /* lSoldie2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53B114EFACE00B315E5 /* lSoldie2.png */; };
+		A7B9A592114EFACE00B315E5 /* lSoldie3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53C114EFACE00B315E5 /* lSoldie3.png */; };
+		A7B9A593114EFACE00B315E5 /* lSoldie4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53D114EFACE00B315E5 /* lSoldie4.png */; };
 		A7B9A594114EFACE00B315E5 /* lSolmov1.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53E114EFACE00B315E5 /* lSolmov1.png */; };
 		A7B9A595114EFACE00B315E5 /* lSolmov2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A53F114EFACE00B315E5 /* lSolmov2.png */; };
 		A7B9A596114EFACE00B315E5 /* lSolmov3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A540114EFACE00B315E5 /* lSolmov3.png */; };
@@ -124,10 +126,10 @@
 		A7B9A5B5114EFACE00B315E5 /* rskulldie4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A55F114EFACE00B315E5 /* rskulldie4.png */; };
 		A7B9A5B6114EFACE00B315E5 /* rskulldie5.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A560114EFACE00B315E5 /* rskulldie5.png */; };
 		A7B9A5B7114EFACE00B315E5 /* rskulldie6.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A561114EFACE00B315E5 /* rskulldie6.png */; };
-		A7B9A5B8114EFACE00B315E5 /* rSoldier.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A562114EFACE00B315E5 /* rSoldier.png */; };
-		A7B9A5B9114EFACE00B315E5 /* rSoldier2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A563114EFACE00B315E5 /* rSoldier2.png */; };
-		A7B9A5BA114EFACE00B315E5 /* rSoldier3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A564114EFACE00B315E5 /* rSoldier3.png */; };
-		A7B9A5BB114EFACE00B315E5 /* rSoldier4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A565114EFACE00B315E5 /* rSoldier4.png */; };
+		A7B9A5B8114EFACE00B315E5 /* rSoldie1.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A562114EFACE00B315E5 /* rSoldie1.png */; };
+		A7B9A5B9114EFACE00B315E5 /* rSoldie2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A563114EFACE00B315E5 /* rSoldie2.png */; };
+		A7B9A5BA114EFACE00B315E5 /* rSoldie3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A564114EFACE00B315E5 /* rSoldie3.png */; };
+		A7B9A5BB114EFACE00B315E5 /* rSoldie4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A565114EFACE00B315E5 /* rSoldie4.png */; };
 		A7B9A5BC114EFACE00B315E5 /* rSolmov1.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A566114EFACE00B315E5 /* rSolmov1.png */; };
 		A7B9A5BD114EFACE00B315E5 /* rSolmov2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A567114EFACE00B315E5 /* rSolmov2.png */; };
 		A7B9A5BE114EFACE00B315E5 /* rSolmov3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A568114EFACE00B315E5 /* rSolmov3.png */; };
@@ -140,6 +142,7 @@
 		A7B9A5C5114EFACE00B315E5 /* walkway6.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A56F114EFACE00B315E5 /* walkway6.png */; };
 		A7B9A5C6114EFACE00B315E5 /* walkway7.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A570114EFACE00B315E5 /* walkway7.png */; };
 		A7B9A5C7114EFACE00B315E5 /* walkway8.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A571114EFACE00B315E5 /* walkway8.png */; };
+		A7BF05E41152E51D004E4587 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BF05E31152E51D004E4587 /* fire.png */; };
 		A7C26928114836CD004CC4B4 /* GameView.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7C26927114836CD004CC4B4 /* GameView.rb */; };
 		A7C2693E11483926004CC4B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2693D11483926004CC4B4 /* OpenGL.framework */; };
 		A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7D30F8D115189E1005D5A4D /* Soldier.rb */; };
@@ -174,7 +177,9 @@
 		A7469CA5114D3D7500ECBD9F /* Player.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Player.rb; sourceTree = "<group>"; };
 		A75F0AEE114C130600AB2781 /* Game.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Game.rb; sourceTree = "<group>"; };
 		A75F0B74114C39C600AB2781 /* GameObject.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameObject.rb; sourceTree = "<group>"; };
-		A75F0B98114C3C2200AB2781 /* GameClasses.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameClasses.rb; sourceTree = "<group>"; };
+		A75F0B98114C3C2200AB2781 /* Platform.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Platform.rb; sourceTree = "<group>"; };
+		A7B38B6511555C1500BEE199 /* Fire.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Fire.rb; sourceTree = "<group>"; };
+		A7B38BAE1155642900BEE199 /* MathExtensions.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = MathExtensions.rb; sourceTree = "<group>"; };
 		A7B48770114B09D60044442A /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A7B48771114B09D60044442A /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lcopdie1weap.png; path = Images/lcopdie1weap.png; sourceTree = "<group>"; };
@@ -207,10 +212,10 @@
 		A7B9A537114EFACE00B315E5 /* lskulldie4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lskulldie4.png; path = Images/lskulldie4.png; sourceTree = "<group>"; };
 		A7B9A538114EFACE00B315E5 /* lskulldie5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lskulldie5.png; path = Images/lskulldie5.png; sourceTree = "<group>"; };
 		A7B9A539114EFACE00B315E5 /* lskulldie6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lskulldie6.png; path = Images/lskulldie6.png; sourceTree = "<group>"; };
-		A7B9A53A114EFACE00B315E5 /* lSoldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldier.png; path = Images/lSoldier.png; sourceTree = "<group>"; };
-		A7B9A53B114EFACE00B315E5 /* lSoldier2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldier2.png; path = Images/lSoldier2.png; sourceTree = "<group>"; };
-		A7B9A53C114EFACE00B315E5 /* lSoldier3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldier3.png; path = Images/lSoldier3.png; sourceTree = "<group>"; };
-		A7B9A53D114EFACE00B315E5 /* lSoldier4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldier4.png; path = Images/lSoldier4.png; sourceTree = "<group>"; };
+		A7B9A53A114EFACE00B315E5 /* lSoldie1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldie1.png; path = Images/lSoldie1.png; sourceTree = "<group>"; };
+		A7B9A53B114EFACE00B315E5 /* lSoldie2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldie2.png; path = Images/lSoldie2.png; sourceTree = "<group>"; };
+		A7B9A53C114EFACE00B315E5 /* lSoldie3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldie3.png; path = Images/lSoldie3.png; sourceTree = "<group>"; };
+		A7B9A53D114EFACE00B315E5 /* lSoldie4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSoldie4.png; path = Images/lSoldie4.png; sourceTree = "<group>"; };
 		A7B9A53E114EFACE00B315E5 /* lSolmov1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSolmov1.png; path = Images/lSolmov1.png; sourceTree = "<group>"; };
 		A7B9A53F114EFACE00B315E5 /* lSolmov2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSolmov2.png; path = Images/lSolmov2.png; sourceTree = "<group>"; };
 		A7B9A540114EFACE00B315E5 /* lSolmov3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lSolmov3.png; path = Images/lSolmov3.png; sourceTree = "<group>"; };
@@ -247,10 +252,10 @@
 		A7B9A55F114EFACE00B315E5 /* rskulldie4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rskulldie4.png; path = Images/rskulldie4.png; sourceTree = "<group>"; };
 		A7B9A560114EFACE00B315E5 /* rskulldie5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rskulldie5.png; path = Images/rskulldie5.png; sourceTree = "<group>"; };
 		A7B9A561114EFACE00B315E5 /* rskulldie6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rskulldie6.png; path = Images/rskulldie6.png; sourceTree = "<group>"; };
-		A7B9A562114EFACE00B315E5 /* rSoldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldier.png; path = Images/rSoldier.png; sourceTree = "<group>"; };
-		A7B9A563114EFACE00B315E5 /* rSoldier2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldier2.png; path = Images/rSoldier2.png; sourceTree = "<group>"; };
-		A7B9A564114EFACE00B315E5 /* rSoldier3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldier3.png; path = Images/rSoldier3.png; sourceTree = "<group>"; };
-		A7B9A565114EFACE00B315E5 /* rSoldier4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldier4.png; path = Images/rSoldier4.png; sourceTree = "<group>"; };
+		A7B9A562114EFACE00B315E5 /* rSoldie1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldie1.png; path = Images/rSoldie1.png; sourceTree = "<group>"; };
+		A7B9A563114EFACE00B315E5 /* rSoldie2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldie2.png; path = Images/rSoldie2.png; sourceTree = "<group>"; };
+		A7B9A564114EFACE00B315E5 /* rSoldie3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldie3.png; path = Images/rSoldie3.png; sourceTree = "<group>"; };
+		A7B9A565114EFACE00B315E5 /* rSoldie4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSoldie4.png; path = Images/rSoldie4.png; sourceTree = "<group>"; };
 		A7B9A566114EFACE00B315E5 /* rSolmov1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSolmov1.png; path = Images/rSolmov1.png; sourceTree = "<group>"; };
 		A7B9A567114EFACE00B315E5 /* rSolmov2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSolmov2.png; path = Images/rSolmov2.png; sourceTree = "<group>"; };
 		A7B9A568114EFACE00B315E5 /* rSolmov3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rSolmov3.png; path = Images/rSolmov3.png; sourceTree = "<group>"; };
@@ -263,6 +268,7 @@
 		A7B9A56F114EFACE00B315E5 /* walkway6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkway6.png; path = Images/walkway6.png; sourceTree = "<group>"; };
 		A7B9A570114EFACE00B315E5 /* walkway7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkway7.png; path = Images/walkway7.png; sourceTree = "<group>"; };
 		A7B9A571114EFACE00B315E5 /* walkway8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkway8.png; path = Images/walkway8.png; sourceTree = "<group>"; };
+		A7BF05E31152E51D004E4587 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fire.png; path = Images/fire.png; sourceTree = "<group>"; };
 		A7C26927114836CD004CC4B4 /* GameView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameView.rb; sourceTree = "<group>"; };
 		A7C2693D11483926004CC4B4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A7D30F8D115189E1005D5A4D /* Soldier.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Soldier.rb; sourceTree = "<group>"; };
@@ -290,9 +296,11 @@
 				A7B48771114B09D60044442A /* Sprite.m */,
 				A75F0AEE114C130600AB2781 /* Game.rb */,
 				A75F0B74114C39C600AB2781 /* GameObject.rb */,
-				A75F0B98114C3C2200AB2781 /* GameClasses.rb */,
+				A75F0B98114C3C2200AB2781 /* Platform.rb */,
 				A7469CA5114D3D7500ECBD9F /* Player.rb */,
 				A7D30F8D115189E1005D5A4D /* Soldier.rb */,
+				A7B38B6511555C1500BEE199 /* Fire.rb */,
+				A7B38BAE1155642900BEE199 /* MathExtensions.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -379,6 +387,7 @@
 		A7B48447114B04F10044442A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A7BF05E31152E51D004E4587 /* fire.png */,
 				A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */,
 				A7B9A51D114EFACE00B315E5 /* lcopdie2weap.png */,
 				A7B9A51E114EFACE00B315E5 /* lcopdie3weap.png */,
@@ -409,10 +418,10 @@
 				A7B9A537114EFACE00B315E5 /* lskulldie4.png */,
 				A7B9A538114EFACE00B315E5 /* lskulldie5.png */,
 				A7B9A539114EFACE00B315E5 /* lskulldie6.png */,
-				A7B9A53A114EFACE00B315E5 /* lSoldier.png */,
-				A7B9A53B114EFACE00B315E5 /* lSoldier2.png */,
-				A7B9A53C114EFACE00B315E5 /* lSoldier3.png */,
-				A7B9A53D114EFACE00B315E5 /* lSoldier4.png */,
+				A7B9A53A114EFACE00B315E5 /* lSoldie1.png */,
+				A7B9A53B114EFACE00B315E5 /* lSoldie2.png */,
+				A7B9A53C114EFACE00B315E5 /* lSoldie3.png */,
+				A7B9A53D114EFACE00B315E5 /* lSoldie4.png */,
 				A7B9A53E114EFACE00B315E5 /* lSolmov1.png */,
 				A7B9A53F114EFACE00B315E5 /* lSolmov2.png */,
 				A7B9A540114EFACE00B315E5 /* lSolmov3.png */,
@@ -449,10 +458,10 @@
 				A7B9A55F114EFACE00B315E5 /* rskulldie4.png */,
 				A7B9A560114EFACE00B315E5 /* rskulldie5.png */,
 				A7B9A561114EFACE00B315E5 /* rskulldie6.png */,
-				A7B9A562114EFACE00B315E5 /* rSoldier.png */,
-				A7B9A563114EFACE00B315E5 /* rSoldier2.png */,
-				A7B9A564114EFACE00B315E5 /* rSoldier3.png */,
-				A7B9A565114EFACE00B315E5 /* rSoldier4.png */,
+				A7B9A562114EFACE00B315E5 /* rSoldie1.png */,
+				A7B9A563114EFACE00B315E5 /* rSoldie2.png */,
+				A7B9A564114EFACE00B315E5 /* rSoldie3.png */,
+				A7B9A565114EFACE00B315E5 /* rSoldie4.png */,
 				A7B9A566114EFACE00B315E5 /* rSolmov1.png */,
 				A7B9A567114EFACE00B315E5 /* rSolmov2.png */,
 				A7B9A568114EFACE00B315E5 /* rSolmov3.png */,
@@ -522,7 +531,7 @@
 				A7C26928114836CD004CC4B4 /* GameView.rb in Resources */,
 				A75F0AEF114C130600AB2781 /* Game.rb in Resources */,
 				A75F0B75114C39C600AB2781 /* GameObject.rb in Resources */,
-				A75F0B99114C3C2200AB2781 /* GameClasses.rb in Resources */,
+				A75F0B99114C3C2200AB2781 /* Platform.rb in Resources */,
 				A7469CA6114D3D7500ECBD9F /* Player.rb in Resources */,
 				A7B9A572114EFACE00B315E5 /* lcopdie1weap.png in Resources */,
 				A7B9A573114EFACE00B315E5 /* lcopdie2weap.png in Resources */,
@@ -554,10 +563,10 @@
 				A7B9A58D114EFACE00B315E5 /* lskulldie4.png in Resources */,
 				A7B9A58E114EFACE00B315E5 /* lskulldie5.png in Resources */,
 				A7B9A58F114EFACE00B315E5 /* lskulldie6.png in Resources */,
-				A7B9A590114EFACE00B315E5 /* lSoldier.png in Resources */,
-				A7B9A591114EFACE00B315E5 /* lSoldier2.png in Resources */,
-				A7B9A592114EFACE00B315E5 /* lSoldier3.png in Resources */,
-				A7B9A593114EFACE00B315E5 /* lSoldier4.png in Resources */,
+				A7B9A590114EFACE00B315E5 /* lSoldie1.png in Resources */,
+				A7B9A591114EFACE00B315E5 /* lSoldie2.png in Resources */,
+				A7B9A592114EFACE00B315E5 /* lSoldie3.png in Resources */,
+				A7B9A593114EFACE00B315E5 /* lSoldie4.png in Resources */,
 				A7B9A594114EFACE00B315E5 /* lSolmov1.png in Resources */,
 				A7B9A595114EFACE00B315E5 /* lSolmov2.png in Resources */,
 				A7B9A596114EFACE00B315E5 /* lSolmov3.png in Resources */,
@@ -594,10 +603,10 @@
 				A7B9A5B5114EFACE00B315E5 /* rskulldie4.png in Resources */,
 				A7B9A5B6114EFACE00B315E5 /* rskulldie5.png in Resources */,
 				A7B9A5B7114EFACE00B315E5 /* rskulldie6.png in Resources */,
-				A7B9A5B8114EFACE00B315E5 /* rSoldier.png in Resources */,
-				A7B9A5B9114EFACE00B315E5 /* rSoldier2.png in Resources */,
-				A7B9A5BA114EFACE00B315E5 /* rSoldier3.png in Resources */,
-				A7B9A5BB114EFACE00B315E5 /* rSoldier4.png in Resources */,
+				A7B9A5B8114EFACE00B315E5 /* rSoldie1.png in Resources */,
+				A7B9A5B9114EFACE00B315E5 /* rSoldie2.png in Resources */,
+				A7B9A5BA114EFACE00B315E5 /* rSoldie3.png in Resources */,
+				A7B9A5BB114EFACE00B315E5 /* rSoldie4.png in Resources */,
 				A7B9A5BC114EFACE00B315E5 /* rSolmov1.png in Resources */,
 				A7B9A5BD114EFACE00B315E5 /* rSolmov2.png in Resources */,
 				A7B9A5BE114EFACE00B315E5 /* rSolmov3.png in Resources */,
@@ -611,6 +620,9 @@
 				A7B9A5C6114EFACE00B315E5 /* walkway7.png in Resources */,
 				A7B9A5C7114EFACE00B315E5 /* walkway8.png in Resources */,
 				A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */,
+				A7BF05E41152E51D004E4587 /* fire.png in Resources */,
+				A7B38B6611555C1500BEE199 /* Fire.rb in Resources */,
+				A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

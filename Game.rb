@@ -23,6 +23,7 @@ class Game
 	
 	def reset
 		@gameObjects = []
+		@fireObjects = []
 		@player = Player.new(400, 140)
 		@gameObjects.addObject Platform.new(50, 200)		
 		@gameObjects.addObject Platform.new(220, 200)
@@ -36,19 +37,48 @@ class Game
 		moveWorld(@player.x - @player.oldX, @player.y - @player.oldY)
 		@player.oldX = @player.x
 		@player.oldY = @player.y
+		
+		@gameObjects.each do |gameObject|
+			gameObject.blurX = gameObject.x
+			gameObject.blurY = gameObject.y
+		end
+	end
+	
+	def addFire(fireObject)
+		@fireObjects.addObject(fireObject)
 	end
 
 	def update
 		@gameObjects.each do |gameObject|
 			gameObject.update(self)
 		end
+		@fireObjects.each do |fireObject|
+			fireObject.update(self)
+			unless NSIntersectsRect(fireObject.rect, self.rect) 
+				@fireObjects.removeObject(fireObject)
+			else
+				@gameObjects.each do |gameObject|
+					if NSIntersectsRect(gameObject.rect, fireObject.rect) 
+						@fireObjects.removeObject(fireObject) if gameObject.addDamage(fireObject.damage)	
+						break
+					end
+				end
+			end
+		end
 		@player.update(self)
+	end
+	
+	def drawObject(gameObject)
+		gameObject.draw if NSIntersectsRect(gameObject.rect, self.rect)
 	end
 	
 	def draw
 		@gameObjects.each do |gameObject|
-			gameObject.draw
-		end		
+			drawObject(gameObject)
+		end
+		@fireObjects.each do |fireObject|
+			drawObject(fireObject)
+		end
 		@player.draw
 	end
 	
@@ -64,8 +94,7 @@ class Game
 		@gameObjects.each do |gameObject|
 			gameObject.x += offsetX
 			gameObject.y += offsetY
-		end
-		
+		end		
 		@fireObjects.each do |fireObject|
 			fireObject.x += offsetX
 			fireObject.y += offsetY
@@ -80,5 +109,9 @@ class Game
 			end
 		end
 		return NSZeroRect
+	end
+	
+	def rect
+		NSMakeRect(0, 0, @width, @height)
 	end
 end

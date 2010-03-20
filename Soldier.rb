@@ -14,37 +14,77 @@ class Soldier < GameObject
 		
 		unless @@spritesLoaded
 			@@leftMoves = []
-			@@rightMoves = []	
+			@@rightMoves = []
+			@@leftDie = []
+			@@rightDie = []	
 		
-			4.times do |i|
-				@@leftMoves << Sprite.spriteWithName("lSolmov#{i+1}.png")
+			for i in 1..4
+				@@leftMoves << Sprite.spriteWithName("lSolmov#{i}.png")
 			end
 			
-			4.times do |i|
-				@@rightMoves << Sprite.spriteWithName("rSolmov#{i+1}.png")
+			for i in 1..4
+				@@rightMoves << Sprite.spriteWithName("rSolmov#{i}.png")
+			end
+			
+			for i in 1..4
+				@@leftDie << Sprite.spriteWithName("lSoldie#{i}.png")
+			end
+			
+			for i in 1..4
+				@@rightDie << Sprite.spriteWithName("rSoldie#{i}.png")
 			end
 		
 			@@spritesLoaded = true
 		end
 		
 		@currentSprite = @@leftMoves.first
+		@lives = 5
+		@wasDamaged = false
 		@isLeftOriented = true
 	end
 	
 	def update(game)
-		if @isLeftOriented
-			@x -= 8			
+		super(game)
+		
+		if @lives <= 0
+			playSprites(@isLeftOriented ? @@leftDie : @@rightDie)
 		else
-			@x += 8
+			if @isLeftOriented
+				@x -= 8			
+			else
+				@x += 8
+			end
+			@y += 5
+			rc = game.platformCollision(self.rect)
+			if NSIsEmptyRect(rc)
+				@x = @oldX
+				@isLeftOriented = !@isLeftOriented
+			end
+			@y = @oldY		
+			loopSprites(@isLeftOriented ? @@leftMoves : @@rightMoves)
 		end
-		@y += 5
-		rc = game.platformCollision(self.rect)
-		if NSIsEmptyRect(rc)
-			@x = @oldX
-			@isLeftOriented = !@isLeftOriented
-		end
-		@y = @oldY
-		loopSprites(@isLeftOriented ? @@leftMoves : @@rightMoves)
 	end	
+	
+	def addDamage(amount)
+		if @lives > 0
+			@lives -= amount	
+			@wasDamaged = true
+			return true
+		end
+		return false		
+	end
+	
+	def draw
+		if @currentSprite 
+			motionBlur		
+			if @wasDamaged
+				glColor4f(1, 0.5, 0.5, 1)
+				@wasDamaged = false
+			else
+				glColor4f(1, 1, 1, 1)
+			end
+			@currentSprite.drawAtX @x, y:@y
+		end
+	end
 end
 
