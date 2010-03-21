@@ -5,7 +5,7 @@
 # For license see LICENSE.TXT.
 
 class GameObject
-	attr_accessor :x, :y, :blurX, :blurY, :oldX, :oldY
+	attr_accessor :x, :y, :blurX, :blurY, :oldX, :oldY, :wasMovedByMovingPlatform
 	
 	def initialize(x, y)		
 		@currentSprite = nil
@@ -16,6 +16,7 @@ class GameObject
 		@blurY = @y
 		@oldX = @x
 		@oldY = @y
+		@wasMovedByMovingPlatform = false
 	end
 		
 	def update(game)
@@ -52,8 +53,12 @@ class GameObject
 		@oldY = @y		
 	end
 	
-	def addDamage(amount)
+	def collidesWithFire
 		true
+	end
+	
+	def addDamage(amount)
+		
 	end
 	
 	def draw
@@ -105,6 +110,10 @@ class GameObject
 	end
 	
 	def isPlatform
+		false
+	end
+	
+	def isGroundCreature
 		false
 	end
 end

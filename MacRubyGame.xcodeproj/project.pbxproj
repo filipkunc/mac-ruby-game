@@ -53,6 +53,7 @@
 		A75F0AEF114C130600AB2781 /* Game.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0AEE114C130600AB2781 /* Game.rb */; };
 		A75F0B75114C39C600AB2781 /* GameObject.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B74114C39C600AB2781 /* GameObject.rb */; };
 		A75F0B99114C3C2200AB2781 /* Platform.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B98114C3C2200AB2781 /* Platform.rb */; };
+		A79809291156CEAE003C4F32 /* Walkway.rb in Resources */ = {isa = PBXBuildFile; fileRef = A79809281156CEAE003C4F32 /* Walkway.rb */; };
 		A7B38B6611555C1500BEE199 /* Fire.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38B6511555C1500BEE199 /* Fire.rb */; };
 		A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38BAE1155642900BEE199 /* MathExtensions.rb */; };
 		A7B48772114B09D60044442A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48771114B09D60044442A /* Sprite.m */; };
@@ -178,6 +179,7 @@
 		A75F0AEE114C130600AB2781 /* Game.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Game.rb; sourceTree = "<group>"; };
 		A75F0B74114C39C600AB2781 /* GameObject.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameObject.rb; sourceTree = "<group>"; };
 		A75F0B98114C3C2200AB2781 /* Platform.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Platform.rb; sourceTree = "<group>"; };
+		A79809281156CEAE003C4F32 /* Walkway.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Walkway.rb; sourceTree = "<group>"; };
 		A7B38B6511555C1500BEE199 /* Fire.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Fire.rb; sourceTree = "<group>"; };
 		A7B38BAE1155642900BEE199 /* MathExtensions.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = MathExtensions.rb; sourceTree = "<group>"; };
 		A7B48770114B09D60044442A /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				A7D30F8D115189E1005D5A4D /* Soldier.rb */,
 				A7B38B6511555C1500BEE199 /* Fire.rb */,
 				A7B38BAE1155642900BEE199 /* MathExtensions.rb */,
+				A79809281156CEAE003C4F32 /* Walkway.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				A7BF05E41152E51D004E4587 /* fire.png in Resources */,
 				A7B38B6611555C1500BEE199 /* Fire.rb in Resources */,
 				A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */,
+				A79809291156CEAE003C4F32 /* Walkway.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

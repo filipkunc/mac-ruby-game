@@ -8,7 +8,7 @@ class GameView < NSOpenGLView
 	def initWithCoder(coder)
 		super
 		
-		@timer = NSTimer.scheduledTimerWithTimeInterval 0.06,
+		@timer = NSTimer.scheduledTimerWithTimeInterval 0.05,
 			target:self,
 			selector:'timerMethod',
 			userInfo:nil,

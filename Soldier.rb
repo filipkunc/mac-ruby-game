@@ -41,6 +41,15 @@ class Soldier < GameObject
 		@lives = 5
 		@wasDamaged = false
 		@isLeftOriented = true
+		@initialUpSpeed = 18
+		@upSpeed = -1
+	end
+	
+	def stopJumpIfNeeded(rc)
+		unless NSIsEmptyRect(rc)
+			@y -= rc.size.height 
+			@upSpeed = -1			
+		end
 	end
 	
 	def update(game)
@@ -48,6 +57,14 @@ class Soldier < GameObject
 		
 		if @lives <= 0
 			playSprites(@isLeftOriented ? @@leftDie : @@rightDie)
+			# falling is not DRY, similar code in Player.rb
+			rc = game.platformCollision(self.rect)
+			if NSIsEmptyRect(rc)
+				@y -= @upSpeed
+				@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
+				rc = game.platformCollision(self.rect)
+			end
+			stopJumpIfNeeded(rc)
 		else
 			if @isLeftOriented
 				@x -= 8			
@@ -65,13 +82,15 @@ class Soldier < GameObject
 		end
 	end	
 	
+	def collidesWithFire
+		@lives > 0
+	end
+	
 	def addDamage(amount)
 		if @lives > 0
 			@lives -= amount	
-			@wasDamaged = true
-			return true
+			@wasDamaged = true			
 		end
-		return false		
 	end
 	
 	def draw
@@ -85,6 +104,10 @@ class Soldier < GameObject
 			end
 			@currentSprite.drawAtX @x, y:@y
 		end
+	end
+	
+	def isGroundCreature
+		true
 	end
 end
 

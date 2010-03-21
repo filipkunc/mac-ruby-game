@@ -5,6 +5,8 @@
 # For license see LICENSE.TXT.
 
 class Player < GameObject
+	attr_accessor :centerX, :centerY
+
 	@@spritesLoaded = false
 
 	def initialize(x, y)
@@ -67,14 +69,15 @@ class Player < GameObject
 	end
 	
 	def moveUpdate(game)
+		speed = 9		
 		if game.pressedKeys.include?(NSLeftArrowFunctionKey)
 			@isLeftOriented = true
 			@isMoving = true
-			@x -= 10
+			@x -= speed
 		elsif game.pressedKeys.include?(NSRightArrowFunctionKey)
 			@isLeftOriented = false
 			@isMoving = true
-			@x += 10
+			@x += speed
 		else
 			@isMoving = false
 		end
@@ -114,13 +117,17 @@ class Player < GameObject
 		end
 	end
 	
-	def finalUpdate(game)
-		updateCurrentSprite		
+	def moveWorld(game)
 		diffX = @oldX - @x
 		diffY = @oldY - @y
 		game.moveWorld(diffX, diffY)
 		@x = @oldX
 		@y = @oldY
+	end
+	
+	def finalUpdate(game)
+		updateCurrentSprite		
+		moveWorld(game)
 	end
 	
 	def update(game)
@@ -129,5 +136,9 @@ class Player < GameObject
 		jumpUpdate(game)
 		fireUpdate(game)
 		finalUpdate(game)
+	end
+	
+	def isGroundCreature
+		true
 	end
 end
