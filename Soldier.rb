@@ -43,13 +43,17 @@ class Soldier < GameObject
 		@isLeftOriented = true
 		@initialUpSpeed = 18
 		@upSpeed = -1
+		@falling = false
 	end
 	
 	def stopJumpIfNeeded(rc)
 		unless NSIsEmptyRect(rc)
 			@y -= rc.size.height 
 			@upSpeed = -1			
-		end
+			@falling = false			
+		else
+			@falling = true
+		end		
 	end
 	
 	def update(game)
@@ -57,11 +61,11 @@ class Soldier < GameObject
 		
 		if @lives <= 0
 			loopSprites(@isLeftOriented ? @@leftDie : @@rightDie, true, true)
-			# falling is not DRY, similar code in Player.rb
 			rc = game.platformCollision(self.rect)
 			if NSIsEmptyRect(rc)
 				@y -= @upSpeed
 				@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
+				@falling = true				
 				rc = game.platformCollision(self.rect)
 			end
 			stopJumpIfNeeded(rc)
@@ -71,13 +75,16 @@ class Soldier < GameObject
 			else
 				@x += 8
 			end
-			@y += 5
+			@y += 2
 			rc = game.platformCollision(self.rect)
 			if NSIsEmptyRect(rc)
 				@x = @oldX
-				@isLeftOriented = !@isLeftOriented
-			end
-			@y = @oldY		
+				@isLeftOriented = !@isLeftOriented unless @falling
+				@y -= @upSpeed
+				@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
+				rc = game.platformCollision(self.rect)
+			end			
+			stopJumpIfNeeded(rc)
 			loopSprites(@isLeftOriented ? @@leftMoves : @@rightMoves)
 		end
 	end	

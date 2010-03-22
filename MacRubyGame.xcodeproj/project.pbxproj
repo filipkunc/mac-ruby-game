@@ -49,6 +49,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A73F90AF1158180D003CF8D0 /* Elevator.rb in Resources */ = {isa = PBXBuildFile; fileRef = A73F90AE1158180D003CF8D0 /* Elevator.rb */; };
+		A73F90B21158229E003CF8D0 /* elevator.png in Resources */ = {isa = PBXBuildFile; fileRef = A73F90B11158229E003CF8D0 /* elevator.png */; };
 		A7469CA6114D3D7500ECBD9F /* Player.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7469CA5114D3D7500ECBD9F /* Player.rb */; };
 		A75F0AEF114C130600AB2781 /* Game.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0AEE114C130600AB2781 /* Game.rb */; };
 		A75F0B75114C39C600AB2781 /* GameObject.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B74114C39C600AB2781 /* GameObject.rb */; };
@@ -175,6 +177,8 @@
 		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MacRubyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacRubyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73F90AE1158180D003CF8D0 /* Elevator.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Elevator.rb; sourceTree = "<group>"; };
+		A73F90B11158229E003CF8D0 /* elevator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elevator.png; path = Images/elevator.png; sourceTree = "<group>"; };
 		A7469CA5114D3D7500ECBD9F /* Player.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Player.rb; sourceTree = "<group>"; };
 		A75F0AEE114C130600AB2781 /* Game.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Game.rb; sourceTree = "<group>"; };
 		A75F0B74114C39C600AB2781 /* GameObject.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameObject.rb; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				A7B38B6511555C1500BEE199 /* Fire.rb */,
 				A7B38BAE1155642900BEE199 /* MathExtensions.rb */,
 				A79809281156CEAE003C4F32 /* Walkway.rb */,
+				A73F90AE1158180D003CF8D0 /* Elevator.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 		A7B48447114B04F10044442A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A73F90B11158229E003CF8D0 /* elevator.png */,
 				A7BF05E31152E51D004E4587 /* fire.png */,
 				A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */,
 				A7B9A51D114EFACE00B315E5 /* lcopdie2weap.png */,
@@ -627,6 +633,8 @@
 				A7B38B6611555C1500BEE199 /* Fire.rb in Resources */,
 				A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */,
 				A79809291156CEAE003C4F32 /* Walkway.rb in Resources */,
+				A73F90AF1158180D003CF8D0 /* Elevator.rb in Resources */,
+				A73F90B21158229E003CF8D0 /* elevator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -106,4 +106,9 @@ class GameObject
 	def isGroundCreature
 		false
 	end
+	
+	def moveWorld(offsetX, offsetY)
+		@x += offsetX
+		@y += offsetY
+	end
 end

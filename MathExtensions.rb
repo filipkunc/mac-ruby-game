@@ -12,4 +12,16 @@ module Math
   def self.min(a, b)
     a < b ? a : b
   end
+  
+  def self.abs(a)
+	a.abs
+  end
+  
+  def self.absmax(a, b)
+	a > 0 ?	max(a, b) : min(a, -b)
+  end
+  
+  def self.absmin(a, b)
+	a > 0 ? min(a, b) : max(a, -b)
+  end
 end

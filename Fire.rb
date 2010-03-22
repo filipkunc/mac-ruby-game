@@ -7,18 +7,12 @@
 require 'GameObject'
 
 class Fire < GameObject
-	@@spritesLoaded = false
+	@@sprite = nil
 	
 	def initialize(x, y, dirX, dirY)
 		super(x, y)
-		
-		unless @@spritesLoaded
-			@@fire = Sprite.spriteWithName "fire.png"
-		
-			@@spritesLoaded = true
-		end
-		
-		@currentSprite = @@fire
+		@@sprite ||= Sprite.spriteWithName "fire.png"
+		@currentSprite = @@sprite
 		@dirX = dirX
 		@dirY = dirY
 	end

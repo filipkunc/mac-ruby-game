@@ -33,19 +33,27 @@ class Game
 		
 		@gameObjects.addObject Platform.new(520, 250)
 		
-		for i in 1..3
-			walkway = Walkway.new(-80, 320, false)
+		for i in 1..2
+			walkway = Walkway.new(0, 420, false)
 			walkway.x += i * walkway.width
 			@gameObjects.addObject walkway
 		end
 		
-		@gameObjects.addObject Platform.new(380, 400)
+		for i in 1..2
+			walkway = Walkway.new(-330, 420, true)
+			walkway.x += i * walkway.width
+			@gameObjects.addObject walkway
+		end
+		
+		@gameObjects.addObject Platform.new(380, 350)
 		
 		for i in 1..3
-			soldier = Soldier.new(i * 80 + 80, 200)
-			soldier.y -= soldier.height
+			soldier = Soldier.new(i * 80 - 20, 200)
+			soldier.y -= soldier.height * 2
 			@gameObjects.addObject soldier
 		end
+		
+		@gameObjects.addObject Elevator.new(20, 460, 20, 140)
 		
 		@player.x = @width / 2 - @player.width / 2;
 		@player.y = @height / 2 - @player.height / 2;
@@ -116,12 +124,10 @@ class Game
 	
 	def moveWorld(offsetX, offsetY)
 		@gameObjects.each do |gameObject|
-			gameObject.x += offsetX
-			gameObject.y += offsetY
+			gameObject.moveWorld(offsetX, offsetY)
 		end		
 		@fireObjects.each do |fireObject|
-			fireObject.x += offsetX
-			fireObject.y += offsetY
+			fireObject.moveWorld(offsetX, offsetY)
 		end
 	end
 	
