@@ -56,7 +56,7 @@ class Soldier < GameObject
 		super(game)
 		
 		if @lives <= 0
-			playSprites(@isLeftOriented ? @@leftDie : @@rightDie)
+			loopSprites(@isLeftOriented ? @@leftDie : @@rightDie, true, true)
 			# falling is not DRY, similar code in Player.rb
 			rc = game.platformCollision(self.rect)
 			if NSIsEmptyRect(rc)

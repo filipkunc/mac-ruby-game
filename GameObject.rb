@@ -68,27 +68,17 @@ class GameObject
 			@currentSprite.drawAtX @x, y:@y
 		end
 	end
-		
-	def loopSprites(sprites)
-		currentIndex = sprites.index(@currentSprite)
-		if currentIndex
-			@currentSprite = sprites[currentIndex + 1]
-			@currentSprite = sprites.first unless @currentSprite
-		else
-			@currentSprite = sprites.first
-		end
-	end
 	
-	def playSprites(sprites)
+	def loopSprites(sprites, playForward = true, playOnce = false)
 		currentIndex = sprites.index(@currentSprite)
 		if currentIndex
-			@currentSprite = sprites[currentIndex + 1]
-			@currentSprite = sprites.last unless @currentSprite
+			@currentSprite = sprites[currentIndex + (playForward ? 1 : -1)]
+			@currentSprite = playOnce ? sprites.last : sprites.first unless @currentSprite			
 		else
 			@currentSprite = sprites.first
 		end
 	end
-
+		
 	def width
 		if @currentSprite
 			@currentSprite.width

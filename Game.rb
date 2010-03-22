@@ -30,8 +30,16 @@ class Game
 			walkway.x += i * walkway.width
 			@gameObjects.addObject walkway
 		end
+		
 		@gameObjects.addObject Platform.new(520, 250)
-		@gameObjects.addObject Platform.new(-20, 320)
+		
+		for i in 1..3
+			walkway = Walkway.new(-80, 320, false)
+			walkway.x += i * walkway.width
+			@gameObjects.addObject walkway
+		end
+		
+		@gameObjects.addObject Platform.new(380, 400)
 		
 		for i in 1..3
 			soldier = Soldier.new(i * 80 + 80, 200)

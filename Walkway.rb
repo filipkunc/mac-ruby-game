@@ -27,7 +27,7 @@ class Walkway < GameObject
 	end
 	
 	def moveGameObject(gameObject)
-		speed = 2
+		speed = 5
 		if gameObject.isGroundCreature && !(gameObject.wasMovedByMovingPlatform)
 			rc = gameObject.rect
 			rc.origin.y += 2
@@ -39,7 +39,7 @@ class Walkway < GameObject
 	end
 	
 	def update(game)
-		loopSprites(@@sprites)
+		loopSprites(@@sprites, @isLeftOriented)
 		
 		game.gameObjects.each do |gameObject|
 			moveGameObject(gameObject)
