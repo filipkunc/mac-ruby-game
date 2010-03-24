@@ -23,19 +23,15 @@ class GameObject
 		@oldSprite = @currentSprite
 		@oldX = @x
 		@oldY = @y
-	end
+	end	
 	
-	def motionBlur
-		stepX = @x - @blurX
-		stepY = @y - @blurY
-		stepCount = Math.max(stepX.abs, stepY.abs)
-		stepCount = Math.max(stepCount.ceil, 1)
+	def drawBlur(stepX, stepY, stepCount)
+		stepX /= stepCount
+		stepY /= stepCount		
 		alphaStep = 0.001
 		alpha = alphaStep
-		stepX /= stepCount
-		stepY /= stepCount
 		x = @blurX
-		y = @blurY
+		y = @blurY		
 		for i in (1..stepCount)
 			glColor4f(1, 1, 1, alpha)
 			if i < stepCount / 2 && @oldSprite
@@ -46,11 +42,17 @@ class GameObject
 			x += stepX
 			y += stepY
 			alpha += alphaStep
-		end
-		@blurX += stepX * stepCount * 0.75
-		@blurY += stepY * stepCount * 0.75
-		@oldX = @x
-		@oldY = @y		
+		end		
+	end
+	
+	def motionBlur(isVisible)
+		stepX = @x - @blurX
+		stepY = @y - @blurY
+		stepCount = Math.max(stepX.abs, stepY.abs)
+		stepCount = Math.max(stepCount.ceil, 1)
+		drawBlur(stepX, stepY, stepCount) if isVisible
+		@blurX += stepX * 0.75
+		@blurY += stepY * 0.75
 	end
 	
 	def collidesWithFire
@@ -61,13 +63,15 @@ class GameObject
 		
 	end
 	
-	def draw
+	def draw(isVisible)
 		if @currentSprite 
-			motionBlur		
-			glColor4f(1, 1, 1, 1)
-			@currentSprite.drawAtX @x, y:@y
+			motionBlur(isVisible)
+			if isVisible
+				glColor4f(1, 1, 1, 1)
+				@currentSprite.drawAtX @x, y:@y
+			end
 		end
-	end
+	end	
 	
 	def loopSprites(sprites, playForward = true, playOnce = false)
 		currentIndex = sprites.index(@currentSprite)

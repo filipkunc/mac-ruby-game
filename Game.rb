@@ -101,7 +101,7 @@ class Game
 	end
 	
 	def drawObject(gameObject)
-		gameObject.draw if NSIntersectsRect(gameObject.rect, self.rect)
+		gameObject.draw NSIntersectsRect(gameObject.rect, self.rect)
 	end
 	
 	def draw
@@ -111,7 +111,7 @@ class Game
 		@fireObjects.each do |fireObject|
 			drawObject(fireObject)
 		end
-		@player.draw
+		@player.draw(true)
 	end
 	
 	def processKeyChar(character, isKeyDown)

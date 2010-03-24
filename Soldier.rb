@@ -100,16 +100,18 @@ class Soldier < GameObject
 		end
 	end
 	
-	def draw
+	def draw(isVisible)
 		if @currentSprite 
-			motionBlur		
-			if @wasDamaged
-				glColor4f(1, 0.5, 0.5, 1)
-				@wasDamaged = false
-			else
-				glColor4f(1, 1, 1, 1)
+			motionBlur(isVisible)
+			if isVisible		
+				if @wasDamaged
+					glColor4f(1, 0.5, 0.5, 1)
+					@wasDamaged = false
+				else
+					glColor4f(1, 1, 1, 1)
+				end
+				@currentSprite.drawAtX @x, y:@y
 			end
-			@currentSprite.drawAtX @x, y:@y
 		end
 	end
 	

@@ -63,7 +63,7 @@ class Player < GameObject
 		end
 	end
 	
-	def draw
+	def draw(isVisible)
 		glColor4f(1, 1, 1, 1)
 		@currentSprite.drawAtX @x, y:@y
 	end
