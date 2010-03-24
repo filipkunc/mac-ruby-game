@@ -22,7 +22,6 @@ class GameView < NSOpenGLView
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 		
 		@game = Game.new
-		
 		return self
 	end
 	
@@ -48,9 +47,7 @@ class GameView < NSOpenGLView
 		glTranslatef(0, baseRect.size.height, 0)
 		glScalef(1, -1, 1)		
 
-		@game.width = baseRect.size.width
-		@game.height = baseRect.size.height
-		@game.reset
+		@game.resize(baseRect.size.width, baseRect.size.height)
 	
 		self.needsDisplay = true
 	end

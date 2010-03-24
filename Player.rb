@@ -109,8 +109,8 @@ class Player < GameObject
 	def fireUpdate(game)
 		@fireCounter ||= 0
 		@fireCounter += 1
-		if (@fireCounter > 2)
-			if (game.pressedKeys.include?(32)) # can't find any 'virtual code' for space 
+		if @fireCounter > 2
+			if game.pressedKeys.include?(' '.ord)
 				game.addFire(Fire.new(@isLeftOriented ? @x - 8 : @x + width, @y + 18, @isLeftOriented ? -30 : 30, 0))
 				@fireCounter = 0
 			end			

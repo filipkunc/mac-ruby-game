@@ -7,18 +7,33 @@
 require 'set'
 
 class Game
-	attr_accessor :width, :height
 	attr_reader :pressedKeys, :gameObjects, :player
 	
 	def initialize
 		@pressedKeys = Set.new
-		@width = 0
-		@height = 0
+		@width = 100
+		@height = 100
+		reset
+	end
+	
+	def resize(width, height)
+		@width = width
+		@height = height
+		@player.x = @width / 2 - @player.width / 2;
+		@player.y = @height / 2 - @player.height / 2;
+		moveWorld(@player.x - @player.oldX, @player.y - @player.oldY)
+		@player.oldX = @player.x
+		@player.oldY = @player.y
 		
-		@gameObjects = []
-		@fireObjects = []
+		@gameObjects.each do |gameObject|
+			gameObject.blurX = gameObject.x
+			gameObject.blurY = gameObject.y
+		end
 		
-		@player = Player.new(400, 140)		
+		@fireObjects.each do |fireObject|
+			fireObject.blurX = fireObject.x
+			fireObject.blurY = fireObject.y
+		end
 	end
 	
 	def reset
@@ -55,16 +70,7 @@ class Game
 		
 		@gameObjects.addObject Elevator.new(20, 460, 20, 140)
 		
-		@player.x = @width / 2 - @player.width / 2;
-		@player.y = @height / 2 - @player.height / 2;
-		moveWorld(@player.x - @player.oldX, @player.y - @player.oldY)
-		@player.oldX = @player.x
-		@player.oldY = @player.y
-		
-		@gameObjects.each do |gameObject|
-			gameObject.blurX = gameObject.x
-			gameObject.blurY = gameObject.y
-		end
+		resize(@width, @height)
 	end
 	
 	def addFire(fireObject)
@@ -72,6 +78,8 @@ class Game
 	end
 	
 	def update
+		reset if pressedKeys.include?('r'.ord)
+	
 		@gameObjects.each do |gameObject|
 			gameObject.wasMovedByMovingPlatform = false
 		end
