@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -55,9 +55,11 @@
 		A75F0AEF114C130600AB2781 /* Game.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0AEE114C130600AB2781 /* Game.rb */; };
 		A75F0B75114C39C600AB2781 /* GameObject.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B74114C39C600AB2781 /* GameObject.rb */; };
 		A75F0B99114C3C2200AB2781 /* Platform.rb in Resources */ = {isa = PBXBuildFile; fileRef = A75F0B98114C3C2200AB2781 /* Platform.rb */; };
+		A76464BF115E901600257DFF /* SpriteViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76464BE115E901600257DFF /* SpriteViewItem.xib */; };
+		A7646503115EC81900257DFF /* AppController.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7646502115EC81900257DFF /* AppController.rb */; };
 		A79809291156CEAE003C4F32 /* Walkway.rb in Resources */ = {isa = PBXBuildFile; fileRef = A79809281156CEAE003C4F32 /* Walkway.rb */; };
 		A7B38B6611555C1500BEE199 /* Fire.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38B6511555C1500BEE199 /* Fire.rb */; };
-		A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38BAE1155642900BEE199 /* MathExtensions.rb */; };
+		A7B38BAF1155642900BEE199 /* Extensions.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7B38BAE1155642900BEE199 /* Extensions.rb */; };
 		A7B48772114B09D60044442A /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B48771114B09D60044442A /* Sprite.m */; };
 		A7B9A572114EFACE00B315E5 /* lcopdie1weap.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */; };
 		A7B9A573114EFACE00B315E5 /* lcopdie2weap.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B9A51D114EFACE00B315E5 /* lcopdie2weap.png */; };
@@ -149,6 +151,7 @@
 		A7C26928114836CD004CC4B4 /* GameView.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7C26927114836CD004CC4B4 /* GameView.rb */; };
 		A7C2693E11483926004CC4B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C2693D11483926004CC4B4 /* OpenGL.framework */; };
 		A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7D30F8D115189E1005D5A4D /* Soldier.rb */; };
+		A7E7A623115C01CF005B69BD /* NSOpenGLView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E7A622115C01CF005B69BD /* NSOpenGLView+Helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -183,9 +186,11 @@
 		A75F0AEE114C130600AB2781 /* Game.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Game.rb; sourceTree = "<group>"; };
 		A75F0B74114C39C600AB2781 /* GameObject.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameObject.rb; sourceTree = "<group>"; };
 		A75F0B98114C3C2200AB2781 /* Platform.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Platform.rb; sourceTree = "<group>"; };
+		A76464BE115E901600257DFF /* SpriteViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpriteViewItem.xib; sourceTree = "<group>"; };
+		A7646502115EC81900257DFF /* AppController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AppController.rb; sourceTree = "<group>"; };
 		A79809281156CEAE003C4F32 /* Walkway.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Walkway.rb; sourceTree = "<group>"; };
 		A7B38B6511555C1500BEE199 /* Fire.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Fire.rb; sourceTree = "<group>"; };
-		A7B38BAE1155642900BEE199 /* MathExtensions.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = MathExtensions.rb; sourceTree = "<group>"; };
+		A7B38BAE1155642900BEE199 /* Extensions.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Extensions.rb; sourceTree = "<group>"; };
 		A7B48770114B09D60044442A /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A7B48771114B09D60044442A /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		A7B9A51C114EFACE00B315E5 /* lcopdie1weap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lcopdie1weap.png; path = Images/lcopdie1weap.png; sourceTree = "<group>"; };
@@ -278,6 +283,8 @@
 		A7C26927114836CD004CC4B4 /* GameView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GameView.rb; sourceTree = "<group>"; };
 		A7C2693D11483926004CC4B4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		A7D30F8D115189E1005D5A4D /* Soldier.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Soldier.rb; sourceTree = "<group>"; };
+		A7E7A621115C01CF005B69BD /* NSOpenGLView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOpenGLView+Helpers.h"; sourceTree = "<group>"; };
+		A7E7A622115C01CF005B69BD /* NSOpenGLView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOpenGLView+Helpers.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +304,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A7646502115EC81900257DFF /* AppController.rb */,
 				A7C26927114836CD004CC4B4 /* GameView.rb */,
 				A7B48770114B09D60044442A /* Sprite.h */,
 				A7B48771114B09D60044442A /* Sprite.m */,
@@ -306,9 +314,11 @@
 				A7469CA5114D3D7500ECBD9F /* Player.rb */,
 				A7D30F8D115189E1005D5A4D /* Soldier.rb */,
 				A7B38B6511555C1500BEE199 /* Fire.rb */,
-				A7B38BAE1155642900BEE199 /* MathExtensions.rb */,
+				A7B38BAE1155642900BEE199 /* Extensions.rb */,
 				A79809281156CEAE003C4F32 /* Walkway.rb */,
 				A73F90AE1158180D003CF8D0 /* Elevator.rb */,
+				A7E7A621115C01CF005B69BD /* NSOpenGLView+Helpers.h */,
+				A7E7A622115C01CF005B69BD /* NSOpenGLView+Helpers.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -377,6 +387,7 @@
 			children = (
 				A7B48447114B04F10044442A /* Images */,
 				2BFA9DA510CDF852007972A1 /* MainMenu.xib */,
+				A76464BE115E901600257DFF /* SpriteViewItem.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 			);
@@ -515,7 +526,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MacRubyGame" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MacRubyGame */;
 			projectDirPath = "";
@@ -631,10 +642,12 @@
 				A7D30F8E115189E1005D5A4D /* Soldier.rb in Resources */,
 				A7BF05E41152E51D004E4587 /* fire.png in Resources */,
 				A7B38B6611555C1500BEE199 /* Fire.rb in Resources */,
-				A7B38BAF1155642900BEE199 /* MathExtensions.rb in Resources */,
+				A7B38BAF1155642900BEE199 /* Extensions.rb in Resources */,
 				A79809291156CEAE003C4F32 /* Walkway.rb in Resources */,
 				A73F90AF1158180D003CF8D0 /* Elevator.rb in Resources */,
 				A73F90B21158229E003CF8D0 /* elevator.png in Resources */,
+				A76464BF115E901600257DFF /* SpriteViewItem.xib in Resources */,
+				A7646503115EC81900257DFF /* AppController.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +702,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				A7B48772114B09D60044442A /* Sprite.m in Sources */,
+				A7E7A623115C01CF005B69BD /* NSOpenGLView+Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,12 +832,12 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -835,7 +849,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

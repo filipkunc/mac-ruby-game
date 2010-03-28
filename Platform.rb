@@ -6,20 +6,20 @@
 
 require 'GameObject'
 
-class Platform < GameObject
-	@@sprite = nil
+module MacRubyGame
+	class Platform < GameObject
+		@@sprite = nil
 
-	def initialize(x, y)
-		super(x, y)
-				
-		@@sprite = Sprite.spriteWithName "platform.png" unless @@sprite
-		@currentSprite = @@sprite
-	end
-	
-	def isPlatform
-		true
+		def initialize(x, y)
+			super(x, y)
+					
+			@@sprite = Sprite.spriteWithName "platform.png" unless @@sprite
+			@currentSprite = @@sprite
+		end
+		
+		def isPlatform
+			true
+		end
 	end
 end
-
-
 

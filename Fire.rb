@@ -6,28 +6,27 @@
 
 require 'GameObject'
 
-class Fire < GameObject
-	@@sprite = nil
-	
-	def initialize(x, y, dirX, dirY)
-		super(x, y)
-		@@sprite ||= Sprite.spriteWithName "fire.png"
-		@currentSprite = @@sprite
-		@dirX = dirX
-		@dirY = dirY
-	end
-	
-	def update(game)
-		super(game)
+module MacRubyGame
+	class Fire < GameObject
+		@@sprite = nil
 		
-		@x += @dirX
-		@y += @dirY
-	end	
-	
-	def damage
-		1
+		def initialize(x, y, dirX, dirY)
+			super(x, y)
+			@@sprite ||= Sprite.spriteWithName "fire.png"
+			@currentSprite = @@sprite
+			@dirX = dirX
+			@dirY = dirY
+		end
+		
+		def update(game)
+			super(game)
+			
+			@x += @dirX
+			@y += @dirY
+		end	
+		
+		def damage
+			1
+		end
 	end
 end
-
-
-

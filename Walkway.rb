@@ -6,53 +6,52 @@
 
 require 'GameObject'
 
-class Walkway < GameObject
-	@@spritesLoaded = false
-	
-	def initialize(x, y, isLeftOriented)
-		super(x, y)
+module MacRubyGame
+	class Walkway < GameObject
+		@@spritesLoaded = false
 		
-		unless @@spritesLoaded
-			@@sprites = []
-	
-			for i in 1..8
-				@@sprites << Sprite.spriteWithName("walkway#{i}.png")
+		def initialize(x, y, isLeftOriented)
+			super(x, y)
+			
+			unless @@spritesLoaded
+				@@sprites = []
+		
+				for i in 1..8
+					@@sprites << Sprite.spriteWithName("walkway#{i}.png")
+				end
+				
+				@@spritesLoaded = true
 			end
 			
-			@@spritesLoaded = true
+			@isLeftOriented = isLeftOriented
+			loopSprites(@@sprites)
 		end
 		
-		@isLeftOriented = isLeftOriented
-		loopSprites(@@sprites)
-	end
-	
-	def moveGameObject(gameObject)
-		speed = 5
-		if gameObject.isGroundCreature && !(gameObject.wasMovedByMovingPlatform)
-			rc = gameObject.rect
-			rc.origin.y += 2
-			if NSIntersectsRect(rc, self.rect)
-				@isLeftOriented ? gameObject.x -= speed : gameObject.x += speed
-				gameObject.wasMovedByMovingPlatform = true
+		def moveGameObject(gameObject)
+			speed = 5
+			if gameObject.isGroundCreature && !(gameObject.wasMovedByMovingPlatform)
+				rc = gameObject.rect
+				rc.origin.y += 2
+				if NSIntersectsRect(rc, self.rect)
+					@isLeftOriented ? gameObject.x -= speed : gameObject.x += speed
+					gameObject.wasMovedByMovingPlatform = true
+				end
 			end
 		end
-	end
-	
-	def update(game)
-		loopSprites(@@sprites, @isLeftOriented)
 		
-		game.gameObjects.each do |gameObject|
-			moveGameObject(gameObject)
+		def update(game)
+			loopSprites(@@sprites, @isLeftOriented)
+			
+			game.gameObjects.each do |gameObject|
+				moveGameObject(gameObject)
+			end
+			
+			moveGameObject(game.player)
+			game.player.moveWorld(game)
 		end
 		
-		moveGameObject(game.player)
-		game.player.moveWorld(game)
-	end
-	
-	def isPlatform
-		true
+		def isPlatform
+			true
+		end
 	end
 end
-
-
-
