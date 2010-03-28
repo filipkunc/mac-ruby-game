@@ -8,6 +8,8 @@ require 'Game'
 
 module MacRubyGame
 	class GameView < NSOpenGLView
+		attr_accessor :gameObjectFactory
+	
 		def initWithCoder(coder)
 			super
 			
@@ -25,6 +27,11 @@ module MacRubyGame
 			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 			
 			@game = Game.new
+			
+			draggedTypes = []
+			draggedTypes << NSStringPboardType
+			self.registerForDraggedTypes(draggedTypes)
+			
 			return self
 		end
 		
@@ -64,6 +71,48 @@ module MacRubyGame
 		
 		def keyUp(event)
 			processKeyChar(event, false)
+		end
+		
+		def draggingEntered(sender)
+			if sender.draggingSource == self
+				NSDragOperationNone
+			else
+				NSDragOperationCopy
+			end
+		end
+		
+		def draggingExited(sender)
+			
+		end
+		
+		def prepareForDragOperation(sender)
+			true
+		end
+		
+		def performDragOperation(sender)
+			@draggedObject = nil
+			
+			if sender.draggingPasteboard.types.include?(NSStringPboardType)
+				name = sender.draggingPasteboard.stringForType(NSStringPboardType)
+				@draggedObject = @gameObjectFactory.createGameObjectByName(name)
+			end
+			
+			return @draggedObject != nil				
+		end
+		
+		
+		def concludeDragOperation(sender)
+			point = self.convertPoint(sender.draggedImageLocation, fromView:nil)
+			point.y = @game.height - point.y
+
+			gameObject = @draggedObject
+			gameObject.setPosition(point.x, point.y - gameObject.height)
+		
+			if gameObject.is_a?(Player)
+				@game.moveWorld(@game.player.x - gameObject.x, @game.player.y - gameObject.y)
+			else
+				@game.gameObjects << gameObject
+			end
 		end
 	end
 end

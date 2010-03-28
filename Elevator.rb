@@ -16,8 +16,8 @@ module MacRubyGame
 			@currentSprite = @@sprite
 			@startX = @x
 			@startY = @y
-			@endX = endX
-			@endY = endY
+			@endX = endX.ceil
+			@endY = endY.ceil
 			@movingTowardsEnd = true
 		end
 		

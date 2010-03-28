@@ -8,22 +8,44 @@ module MacRubyGame
 	class AppController
 		attr_accessor :gameObjectPalette
 		
-		def createObject(imageName, displayName)
-			{ "image" => NSImage.imageNamed(imageName), "name" => displayName }
+		def createPaletteObject(imageName, displayName, block)
+			{ "image" => NSImage.imageNamed(imageName), "name" => displayName, "block" => block }
+		end
+		
+		def createGameObjectByName(displayName)
+			@gameObjectLookup[displayName].call
 		end
 		
 		def initialize
 			@gameObjectPalette = []
-			@gameObjectPalette << createObject("lcopweap.png", "Player")
+			@gameObjectPalette << createPaletteObject("lcopweap.png", "Player", ->(){ Player.new(0, 0) })
 			# enemies
-			@gameObjectPalette << createObject("rSoldie1.png", "Soldier")
-			@gameObjectPalette << createObject("rskull.png", "Skull")
-			@gameObjectPalette << createObject("rdaemon01.png", "Daemon")			
+			@gameObjectPalette << createPaletteObject("rSoldie1.png", "Soldier", ->(){ Soldier.new(0, 0) })
+			#@gameObjectPalette << createPaletteObject("rskull.png", "Skull")
+			#@gameObjectPalette << createPaletteObject("rdaemon01.png", "Daemon")			
 			# platforms
-			@gameObjectPalette << createObject("platform.png", "Platform")
-			@gameObjectPalette << createObject("elevator.png", "Elevator")
-			@gameObjectPalette << createObject("walkway5.png", "Left Walkway")
-			@gameObjectPalette << createObject("walkway1.png", "Right Walkway")
+			@gameObjectPalette << createPaletteObject("platform.png", "Platform", ->(){ Platform.new(0, 0) })
+			@gameObjectPalette << createPaletteObject("elevator.png", "Elevator", ->(){ Elevator.new(0, 0, 0, 0) } )
+			@gameObjectPalette << createPaletteObject("walkway5.png", "Left Walkway", ->(){ Walkway.new(0, 0, true) } )
+			@gameObjectPalette << createPaletteObject("walkway1.png", "Right Walkway", ->(){ Walkway.new(0, 0, false) })
+			
+			@gameObjectLookup = {}
+			@gameObjectPalette.each do |paletteObject|
+				@gameObjectLookup[paletteObject["name"]] = paletteObject["block"]
+			end
 		end
+		
+		def collectionView(view, writeItemsAtIndexes:indexes, toPasteboard:pasteboard)
+			types = []
+			NSStringPboardType
+			types << NSStringPboardType
+			pasteboard.declareTypes(types, owner:self)
+			pasteboard.setString(@gameObjectPalette[indexes.firstIndex]["name"], forType:types.first)
+			true
+		end
+		
+		def collectionView(view, draggingImageForItemsAtIndexes:indexes, withEvent:event, offset:dragImageOffset)
+			@gameObjectPalette[indexes.firstIndex]["image"]
+		end		
 	end
 end

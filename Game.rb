@@ -8,8 +8,8 @@ require 'set'
 
 module MacRubyGame
 	class Game
-		attr_reader :pressedKeys, :gameObjects, :player
-		
+		attr_reader :pressedKeys, :gameObjects, :player, :width, :height
+				
 		def initialize
 			@pressedKeys = Set.new
 			@width = 100
@@ -22,6 +22,8 @@ module MacRubyGame
 			@height = height
 			@player.x = @width / 2 - @player.width / 2;
 			@player.y = @height / 2 - @player.height / 2;
+			@player.x  = @player.x.ceil
+			@player.y  = @player.y.ceil
 			moveWorld(@player.x - @player.oldX, @player.y - @player.oldY)
 			@player.oldX = @player.x
 			@player.oldY = @player.y
@@ -48,6 +50,7 @@ module MacRubyGame
 			end
 			
 			@gameObjects.addObject Platform.new(520, 250)
+			@gameObjects.addObject Platform.new(650, 250)
 			
 			for i in 1..2
 				walkway = Walkway.new(0, 420, false)

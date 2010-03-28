@@ -11,13 +11,17 @@ module MacRubyGame
 		def initialize(x, y)		
 			@currentSprite = nil
 			@oldSprite = nil
-			@x = x
-			@y = y
+			setPosition(x, y)
+			@wasMovedByMovingPlatform = false
+		end
+		
+		def setPosition(x, y)
+			@x = x.ceil
+			@y = y.ceil
 			@blurX = @x
 			@blurY = @y
 			@oldX = @x
 			@oldY = @y
-			@wasMovedByMovingPlatform = false
 		end
 			
 		def update(game)
