@@ -4,10 +4,10 @@
 # Created by Filip Kunc on 3/17/10.
 # For license see LICENSE.TXT.
 
-require 'GameObject'
+require 'GroundCreature'
 
 module MacRubyGame
-	class Soldier < GameObject
+	class Soldier < GroundCreature
 		@@spritesLoaded = false
 		
 		def initialize(x, y)
@@ -42,52 +42,39 @@ module MacRubyGame
 			@lives = 5
 			@wasDamaged = false
 			@isLeftOriented = true
-			@initialUpSpeed = 18
-			@upSpeed = -1
-			@falling = false
+			@changedOrientation = false
 		end
 		
-		def stopJumpIfNeeded(rc)
-			unless NSIsEmptyRect(rc)
-				@y -= rc.size.height 
-				@upSpeed = -1			
-				@falling = false			
-			else
-				@falling = true
-			end		
-		end
-		
-		def update(game)
-			super(game)
-			
+		def updateCurrentSprite
 			if @lives <= 0
 				loopSprites(@isLeftOriented ? @@leftDie : @@rightDie, true, true)
-				rc = game.platformCollision(self.rect)
-				if NSIsEmptyRect(rc)
-					@y -= @upSpeed
-					@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
-					@falling = true				
-					rc = game.platformCollision(self.rect)
-				end
-				stopJumpIfNeeded(rc)
 			else
+				loopSprites(@isLeftOriented ? @@leftMoves : @@rightMoves)
+			end
+		end
+		
+		def moveUpdate(game)
+			if @lives > 0
 				if @isLeftOriented
 					@x -= 8			
 				else
 					@x += 8
-				end
-				@y += 2
-				rc = game.platformCollision(self.rect)
-				if NSIsEmptyRect(rc)
-					@x = @oldX
-					@isLeftOriented = !@isLeftOriented unless @falling
-					@y -= @upSpeed
-					@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
-					rc = game.platformCollision(self.rect)
-				end			
-				stopJumpIfNeeded(rc)
-				loopSprites(@isLeftOriented ? @@leftMoves : @@rightMoves)
+				end	
 			end
+		end
+		
+		def update(game)
+			super(game)
+			moveUpdate(game)			
+			jumpUpdate(game)
+			if @isJumping && @lives > 0
+				@isLeftOriented = !@isLeftOriented unless @changedOrientation
+				@changedOrientation = true
+				@x = @oldX
+			else
+				@changedOrientation = false
+			end
+			updateCurrentSprite
 		end	
 		
 		def collidesWithFire
@@ -114,10 +101,6 @@ module MacRubyGame
 					@currentSprite.drawAtX @x, y:@y
 				end
 			end
-		end
-		
-		def isGroundCreature
-			true
-		end
+		end	
 	end
 end

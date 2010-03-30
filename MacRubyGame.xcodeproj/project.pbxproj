@@ -49,6 +49,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A70631B911627DDF00132A2C /* GroundCreature.rb in Resources */ = {isa = PBXBuildFile; fileRef = A70631B811627DDF00132A2C /* GroundCreature.rb */; };
 		A73F90AF1158180D003CF8D0 /* Elevator.rb in Resources */ = {isa = PBXBuildFile; fileRef = A73F90AE1158180D003CF8D0 /* Elevator.rb */; };
 		A73F90B21158229E003CF8D0 /* elevator.png in Resources */ = {isa = PBXBuildFile; fileRef = A73F90B11158229E003CF8D0 /* elevator.png */; };
 		A7469CA6114D3D7500ECBD9F /* Player.rb in Resources */ = {isa = PBXBuildFile; fileRef = A7469CA5114D3D7500ECBD9F /* Player.rb */; };
@@ -180,6 +181,7 @@
 		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MacRubyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacRubyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A70631B811627DDF00132A2C /* GroundCreature.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = GroundCreature.rb; sourceTree = "<group>"; };
 		A73F90AE1158180D003CF8D0 /* Elevator.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Elevator.rb; sourceTree = "<group>"; };
 		A73F90B11158229E003CF8D0 /* elevator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elevator.png; path = Images/elevator.png; sourceTree = "<group>"; };
 		A7469CA5114D3D7500ECBD9F /* Player.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = Player.rb; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				A73F90AE1158180D003CF8D0 /* Elevator.rb */,
 				A7E7A621115C01CF005B69BD /* NSOpenGLView+Helpers.h */,
 				A7E7A622115C01CF005B69BD /* NSOpenGLView+Helpers.m */,
+				A70631B811627DDF00132A2C /* GroundCreature.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				A73F90B21158229E003CF8D0 /* elevator.png in Resources */,
 				A76464BF115E901600257DFF /* SpriteViewItem.xib in Resources */,
 				A7646503115EC81900257DFF /* AppController.rb in Resources */,
+				A70631B911627DDF00132A2C /* GroundCreature.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

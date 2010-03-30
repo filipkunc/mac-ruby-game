@@ -4,10 +4,10 @@
 # Created by Filip Kunc on 3/14/10.
 # For license see LICENSE.TXT.
 
-require 'GameObject'
+require 'GroundCreature'
 
 module MacRubyGame
-	class Player < GameObject
+	class Player < GroundCreature
 		attr_accessor :centerX, :centerY
 
 		@@spritesLoaded = false
@@ -39,21 +39,9 @@ module MacRubyGame
 			end
 			
 			@isLeftOriented = true
-			@currentSprite = @@leftStand
-			@initialUpSpeed = 18
-			@upSpeed = @initialUpSpeed
-			@isJumping = false
-			@isMoving = false
-			
+			@currentSprite = @@leftStand			
+			@isMoving = false			
 			@fires = []
-		end
-		
-		def stopJumpIfNeeded(rc)
-			unless NSIsEmptyRect(rc)
-				@y -= rc.size.height 
-				@upSpeed = @initialUpSpeed
-				@isJumping = false
-			end
 		end
 		
 		def updateCurrentSprite
@@ -86,29 +74,6 @@ module MacRubyGame
 			end
 		end
 		
-		def jumpUpdate(game)
-			if @upSpeed > 0 && !@isJumping && game.pressedKeys.include?(NSUpArrowFunctionKey)
-				@isJumping = true
-				@y -= @upSpeed
-				@upSpeed -= 2
-			elsif @upSpeed > 0 && @jumping
-				@y -= @upSpeed
-				@upSpeed -= 2
-			else		
-				unless @isJumping
-					@isJumping = true
-					@upSpeed = -1
-				end
-				rc = game.platformCollision(self.rect)
-				if NSIsEmptyRect(rc)
-					@y -= @upSpeed
-					@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
-					rc = game.platformCollision(self.rect)
-				end
-				stopJumpIfNeeded(rc)			
-			end
-		end
-		
 		def fireUpdate(game)
 			@fireCounter ||= 0
 			@fireCounter += 1
@@ -136,13 +101,9 @@ module MacRubyGame
 		def update(game)
 			super(game)
 			moveUpdate(game)
-			jumpUpdate(game)
+			jumpUpdate(game, false)
 			fireUpdate(game)
 			finalUpdate(game)
-		end
-		
-		def isGroundCreature
-			true
 		end
 	end
 end
