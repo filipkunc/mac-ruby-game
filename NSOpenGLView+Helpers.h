@@ -16,5 +16,8 @@
 + (NSOpenGLContext *)sharedContext;
 - (void)setupSharedContext;
 - (NSSize)reshapeFlippedOrtho2D;
+- (NSPoint)locationFromNSEvent:(NSEvent *)e;
+- (float)flippedY:(float)y;
+- (NSPoint)flippedNSPoint:(NSPoint)point;
 
 @end

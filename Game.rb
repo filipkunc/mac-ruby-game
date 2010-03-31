@@ -117,6 +117,8 @@ module MacRubyGame
 		end
 		
 		def draw
+			glEnable(GL_TEXTURE_RECTANGLE_ARB)			
+			
 			@gameObjects.each do |gameObject|
 				drawObject(gameObject)
 			end
@@ -124,6 +126,16 @@ module MacRubyGame
 				drawObject(fireObject)
 			end
 			@player.draw(true)
+			
+			glDisable(GL_TEXTURE_RECTANGLE_ARB)
+			glColor4f(1, 1, 1, 1)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)			
+			@gameObjects.each do |gameObject| 
+				gameObject.drawSelection
+			end
+			
+			@player.drawSelection			
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 		end
 		
 		def processKeyChar(character, isKeyDown)
@@ -156,5 +168,19 @@ module MacRubyGame
 		def rect
 			NSMakeRect(0, 0, @width, @height)
 		end
+		
+		def selectAll(isSelected = true)
+			@gameObjects.each do |gameObject|
+				gameObject.isSelected = isSelected
+			end
+			@player.isSelected = isSelected
+		end
+		
+		def selectAllIntersectingRect(selectionRect, isSelected = true)
+			@gameObjects.each do |gameObject|
+				gameObject.isSelected = isSelected if NSIntersectsRect(selectionRect, gameObject.rect)
+			end
+			@player.isSelected = isSelected if NSIntersectsRect(selectionRect, player.rect)
+		end		
 	end
 end

@@ -70,4 +70,19 @@ NSOpenGLContext *globalGLContext = nil;
 	return baseRect.size;
 }
 
+- (NSPoint)locationFromNSEvent:(NSEvent *)e
+{
+	return [self convertPoint:[e locationInWindow] fromView:nil];
+}
+
+- (float)flippedY:(float)y
+{
+	return [self bounds].size.height - y;
+}
+
+- (NSPoint)flippedNSPoint:(NSPoint)point
+{
+	return NSMakePoint(point.x, [self flippedY:point.y]);
+}
+
 @end

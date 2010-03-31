@@ -32,6 +32,9 @@ module MacRubyGame
 			draggedTypes << NSStringPboardType
 			self.registerForDraggedTypes(draggedTypes)
 			
+			@startSelection = @endSelection = NSZeroPoint
+			@draggingSelection = false
+			
 			return self
 		end
 		
@@ -50,6 +53,14 @@ module MacRubyGame
 		def drawRect(rect)
 			glClear(GL_COLOR_BUFFER_BIT)
 			@game.draw
+			if @draggingSelection
+				glColor4f(1, 1, 1, 0.1)
+				glRecti(@startSelection.x, @startSelection.y, @endSelection.x, @endSelection.y)
+				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
+				glColor4f(1, 1, 1, 0.5)
+				glRecti(@startSelection.x, @startSelection.y, @endSelection.x, @endSelection.y)
+				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+			end
 			self.openGLContext.flushBuffer
 		end
 		
@@ -113,6 +124,39 @@ module MacRubyGame
 			else
 				@game.gameObjects << gameObject
 			end
+		end
+		
+		def mouseDown(event)
+			@endSelection = @startSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
+			@draggingSelection = true
+			self.needsDisplay = true
+		end
+		
+		def mouseDragged(event)
+			@endSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
+			self.needsDisplay = true
+		end
+		
+		def mouseUp(event)
+			@game.selectAll(false)
+			if @draggingSelection
+				if NSIsEmptyRect(selectionRect)
+					point = self.flippedNSPoint(self.locationFromNSEvent(event))
+					@game.selectAllIntersectingRect(NSMakeRect(point.x, point.y, 1, 1))
+				else
+					@game.selectAllIntersectingRect(selectionRect)
+				end
+				@draggingSelection = false
+			end
+			self.needsDisplay = true
+		end
+		
+		def selectionRect
+			minX = Math.min(@startSelection.x, @endSelection.x)
+			maxX = Math.max(@startSelection.x, @endSelection.x)
+			minY = Math.min(@startSelection.y, @endSelection.y)
+			maxY = Math.max(@startSelection.y, @endSelection.y)
+			return NSMakeRect(minX, minY, maxX - minX, maxY - minY)
 		end
 	end
 end

@@ -6,13 +6,14 @@
 
 module MacRubyGame
 	class GameObject
-		attr_accessor :x, :y, :blurX, :blurY, :oldX, :oldY, :wasMovedByMovingPlatform
+		attr_accessor :x, :y, :blurX, :blurY, :oldX, :oldY, :wasMovedByMovingPlatform, :isSelected
 		
 		def initialize(x, y)		
 			@currentSprite = nil
 			@oldSprite = nil
 			setPosition(x, y)
 			@wasMovedByMovingPlatform = false
+			@isSelected = false
 		end
 		
 		def setPosition(x, y)
@@ -76,7 +77,13 @@ module MacRubyGame
 					@currentSprite.drawAtX @x, y:@y
 				end
 			end
-		end	
+		end
+		
+		def drawSelection
+			if @isSelected
+				glRecti(@x, @y, @x + width, @y + height)				
+			end
+		end
 		
 		def loopSprites(sprites, playForward = true, playOnce = false)
 			currentIndex = sprites.index(@currentSprite)

@@ -75,11 +75,12 @@ module MacRubyGame
 		end
 		
 		def fireUpdate(game)
+			speed = 30
 			@fireCounter ||= 0
 			@fireCounter += 1
 			if @fireCounter > 2
 				if game.pressedKeys.include?(' '.ord)
-					game.addFire(Fire.new(@isLeftOriented ? @x - 8 : @x + width, @y + 18, @isLeftOriented ? -30 : 30, 0))
+					game.addFire(Fire.new(@isLeftOriented ? @x - 8 : @x + width, @y + 18, @isLeftOriented ? -speed : speed, 0))
 					@fireCounter = 0
 				end			
 			end
