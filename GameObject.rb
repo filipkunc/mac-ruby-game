@@ -123,7 +123,7 @@ module MacRubyGame
 			false
 		end
 		
-		def moveWorld(offsetX, offsetY)
+		def move(offsetX, offsetY)
 			@x += offsetX
 			@y += offsetY
 		end

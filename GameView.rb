@@ -34,6 +34,7 @@ module MacRubyGame
 			
 			@startSelection = @endSelection = NSZeroPoint
 			@draggingSelection = false
+			@draggingObjects = false
 			
 			return self
 		end
@@ -127,13 +128,22 @@ module MacRubyGame
 		end
 		
 		def mouseDown(event)
-			@endSelection = @startSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
-			@draggingSelection = true
+			@endSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
+			if @game.isSelectedUnderMouse(@endSelection)
+				@draggingObjects = true
+			else
+				@startSelection = @endSelection
+				@draggingSelection = true
+			end
 			self.needsDisplay = true
 		end
 		
 		def mouseDragged(event)
-			@endSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
+			location = self.flippedNSPoint(self.locationFromNSEvent(event))
+			if @draggingObjects
+				@game.moveSelected(location.x - @endSelection.x, location.y - @endSelection.y)			
+			end
+			@endSelection = location
 			self.needsDisplay = true
 		end
 		

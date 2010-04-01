@@ -148,10 +148,10 @@ module MacRubyGame
 		
 		def moveWorld(offsetX, offsetY)
 			@gameObjects.each do |gameObject|
-				gameObject.moveWorld(offsetX, offsetY)
+				gameObject.move(offsetX, offsetY)
 			end		
 			@fireObjects.each do |fireObject|
-				fireObject.moveWorld(offsetX, offsetY)
+				fireObject.move(offsetX, offsetY)
 			end
 		end
 		
@@ -181,6 +181,19 @@ module MacRubyGame
 				gameObject.isSelected = isSelected if NSIntersectsRect(selectionRect, gameObject.rect)
 			end
 			@player.isSelected = isSelected if NSIntersectsRect(selectionRect, player.rect)
-		end		
+		end
+		
+		def isSelectedUnderMouse(location)
+			@gameObjects.each do |gameObject|
+				return true if gameObject.isSelected && NSPointInRect(location, gameObject.rect)
+			end
+			return false
+		end
+		
+		def moveSelected(offsetX, offsetY)
+			@gameObjects.each do |gameObject|
+				gameObject.move(offsetX, offsetY) if gameObject.isSelected
+			end
+		end
 	end
 end

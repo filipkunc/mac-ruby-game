@@ -23,7 +23,7 @@ module MacRubyGame
 		
 		def moveGameObject(gameObject, speedX, speedY)
 			if gameObject.isGroundCreature && !(gameObject.wasMovedByMovingPlatform)
-				rc = gameObject.rect
+				rc = gameObject.groundRect
 				rc.origin.y += 2
 				if NSIntersectsRect(rc, self.rect)
 					gameObject.x += speedX
@@ -65,7 +65,7 @@ module MacRubyGame
 			true
 		end
 		
-		def moveWorld(offsetX, offsetY)
+		def move(offsetX, offsetY)
 			super(offsetX, offsetY)
 			@startX += offsetX
 			@startY += offsetY

@@ -30,7 +30,7 @@ module MacRubyGame
 		def moveGameObject(gameObject)
 			speed = 5
 			if gameObject.isGroundCreature && !(gameObject.wasMovedByMovingPlatform)
-				rc = gameObject.rect
+				rc = gameObject.groundRect
 				rc.origin.y += 2
 				if NSIntersectsRect(rc, self.rect)
 					@isLeftOriented ? gameObject.x -= speed : gameObject.x += speed
