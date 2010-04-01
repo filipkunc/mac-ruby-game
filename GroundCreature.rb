@@ -37,14 +37,18 @@ module MacRubyGame
 					@isJumping = true
 					@upSpeed = -1
 				end
-				rc = game.platformCollision(self.rect)
+				rc = game.platformCollision(groundRect)
 				if NSIsEmptyRect(rc)
 					@y -= @upSpeed
 					@upSpeed -= 3 if @upSpeed > -@initialUpSpeed
-					rc = game.platformCollision(self.rect)
+					rc = game.platformCollision(groundRect)
 				end
 				stopJumpIfNeeded(rc)
 			end
+		end
+		
+		def groundRect
+			NSMakeRect(@x + width / 2 - 5, @y + height - 12, 12, 12)			
 		end
 		
 		def isGroundCreature
