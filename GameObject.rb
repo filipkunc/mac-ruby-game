@@ -11,7 +11,12 @@ module MacRubyGame
 		def initialize(x, y)		
 			@currentSprite = nil
 			@oldSprite = nil
-			setPosition(x, y)
+			@x = x.ceil
+			@y = y.ceil
+			@blurX = @x
+			@blurY = @y
+			@oldX = @x
+			@oldY = @y
 			@wasMovedByMovingPlatform = false
 			@isSelected = false
 		end
@@ -126,6 +131,16 @@ module MacRubyGame
 		def move(offsetX, offsetY)
 			@x += offsetX
 			@y += offsetY
+			if parts
+				parts.each do |part|
+					part.x += offsetX
+					part.y += offsetY
+				end
+			end
+		end
+		
+		def parts
+			return nil
 		end
 	end
 end

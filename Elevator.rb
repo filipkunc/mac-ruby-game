@@ -7,6 +7,13 @@
 require 'GameObject'
 
 module MacRubyGame
+	class ElevatorPart < GameObject
+		def initialize(x, y, sprite)
+			super(x, y)
+			@currentSprite = sprite # needed for width, and height
+		end
+	end
+
 	class Elevator < GameObject
 		@@sprite = nil
 		
@@ -14,11 +21,36 @@ module MacRubyGame
 			super(x, y)
 			@@sprite ||= Sprite.spriteWithName "elevator.png"
 			@currentSprite = @@sprite
-			@startX = @x
-			@startY = @y
-			@endX = endX.ceil
-			@endY = endY.ceil
+			@parts = []
+			@parts << ElevatorPart.new(@x, @y, @@sprite)
+			@parts << ElevatorPart.new(endX.ceil, endY.ceil, @@sprite)
 			@movingTowardsEnd = true
+		end
+		
+		def setPosition(x, y)
+			super(x, y)
+			@parts[1].x += @x - @parts[0].x
+			@parts[1].y += @y - @parts[0].y
+			@parts[1].x = @parts[1].x.ceil
+			@parts[1].y = @parts[1].y.ceil
+			@parts[0].x = @x
+			@parts[0].y = @y			
+		end
+		
+		def draw(isVisible)
+			super(isVisible)			
+			glColor4f(1, 1, 1, 0.1)
+			@parts.each do |part|
+				@currentSprite.drawAtX part.x, y:part.y
+			end
+			glColor4f(1, 1, 1, 0.2)
+			glDisable(GL_TEXTURE_RECTANGLE_ARB)			
+			glBegin(GL_LINES)
+			@parts.each do |part|
+				glVertex2f(part.x + width / 2, part.y + height / 2)
+			end
+			glEnd()
+			glEnable(GL_TEXTURE_RECTANGLE_ARB)
 		end
 		
 		def moveGameObject(gameObject, speedX, speedY)
@@ -35,11 +67,11 @@ module MacRubyGame
 		
 		def update(game)
 			if @movingTowardsEnd
-				diffX = @endX - @x
-				diffY = @endY - @y
+				diffX = @parts[1].x - @x
+				diffY = @parts[1].y - @y
 			else
-				diffX = @startX - @x
-				diffY = @startY - @y
+				diffX = @parts[0].x - @x
+				diffY = @parts[0].y - @y
 			end
 			
 			speed = 7
@@ -65,12 +97,8 @@ module MacRubyGame
 			true
 		end
 		
-		def move(offsetX, offsetY)
-			super(offsetX, offsetY)
-			@startX += offsetX
-			@startY += offsetY
-			@endX += offsetX
-			@endY += offsetY
+		def parts
+			@parts
 		end
 	end
 end

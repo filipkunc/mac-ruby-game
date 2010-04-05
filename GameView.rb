@@ -40,7 +40,9 @@ module MacRubyGame
 		end
 		
 		def timerMethod
-			@game.update
+			if @gameObjectFactory.selectedMode == "Game"
+				@game.update
+			end
 			self.needsDisplay = true
 		end
 
@@ -123,17 +125,19 @@ module MacRubyGame
 			if gameObject.is_a?(Player)
 				@game.moveWorld(@game.player.x - gameObject.x, @game.player.y - gameObject.y)
 			else
-				@game.gameObjects << gameObject
+				@game.addGameObject gameObject
 			end
 		end
 		
 		def mouseDown(event)
+			@draggingObjects = @draggingSelection = false
 			@endSelection = self.flippedNSPoint(self.locationFromNSEvent(event))
 			if @game.isSelectedUnderMouse(@endSelection)
 				@draggingObjects = true
 			else
 				@startSelection = @endSelection
 				@draggingSelection = true
+				
 			end
 			self.needsDisplay = true
 		end
@@ -148,16 +152,18 @@ module MacRubyGame
 		end
 		
 		def mouseUp(event)
-			@game.selectAll(false)
-			if @draggingSelection
-				if NSIsEmptyRect(selectionRect)
-					point = self.flippedNSPoint(self.locationFromNSEvent(event))
-					@game.selectAllIntersectingRect(NSMakeRect(point.x, point.y, 1, 1))
-				else
-					@game.selectAllIntersectingRect(selectionRect)
+			unless @draggingObjects
+				@game.selectAll(false)
+				if @draggingSelection
+					if NSIsEmptyRect(selectionRect)
+						point = self.flippedNSPoint(self.locationFromNSEvent(event))
+						@game.selectOneUnderMouse(point)
+					else
+						@game.selectAllIntersectingRect(selectionRect)
+					end
+					@draggingObjects = @draggingSelection = false
 				end
-				@draggingSelection = false
-			end
+			end			
 			self.needsDisplay = true
 		end
 		
